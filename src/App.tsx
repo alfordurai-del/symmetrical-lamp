@@ -5,7 +5,7 @@ import BottomNavigation from './components/BottomNavigation';
 import Market from './components/Market';
 import SmartTrading from './components/SmartTrading';
 import Account from './components/Account';
-import Borrow from './components/borrow';
+import Borrow from './components/Borrow';
 import MarketDetail from './components/MarketDetail';
 import StartVerification from './components/StartVerification';
 

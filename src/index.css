@@ -1,18 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Abel&family=Anton&family=Dosis:wght@200..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-/* In your main CSS file (e.g., index.css) */
+
+/* Hide scrollbar */
 .custom-scrollbar::-webkit-scrollbar {
-    display: none; /* Hide scrollbar for Chrome, Safari and Opera */
+    display: none;
 }
 .custom-scrollbar {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
-.bg-blue-600{
+
+/* Custom colors, classes, etc. */
+.bg-blue-600 {
     background-color: #1199fa;
 }
-.header-market{
+html, body {
+  font-family: 'Poppins', 'Inter', 'Dosis', sans-serif !important;
+}
+.header-market {
     position: fixed;
     top: 0;
     left: 0;
@@ -21,7 +29,6 @@
     background: #010117;
     padding: 1.82rem 1rem;
     z-index: 11;
-
 }
 .marginTop-header{
     padding-top: 6rem;

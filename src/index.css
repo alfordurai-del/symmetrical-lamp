@@ -8,6 +8,7 @@
 .custom-scrollbar::-webkit-scrollbar {
     display: none;
 }
+
 .custom-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -17,9 +18,12 @@
 .bg-blue-600 {
     background-color: #1199fa;
 }
-html, body {
-  font-family: 'Poppins', 'Inter', 'Dosis', sans-serif !important;
+
+html,
+body {
+    font-family: 'Mabry Pro', 'Poppins', 'Inter', 'Dosis', sans-serif !important;
 }
+
 .header-market {
     position: fixed;
     top: 0;
@@ -27,48 +31,108 @@ html, body {
     height: 1.36rem;
     width: 100%;
     background: #010117;
-    padding: 1.82rem 1rem;
+    padding: 2.2rem 1.5rem;
     z-index: 11;
 }
-.marginTop-header{
+
+.marginTop-header {
     padding-top: 6rem;
 }
-.categories{
+
+.categories {
     width: calc(100% - 0.48rem);
     height: max-content;
     margin: auto;
-    padding: 0.08rem 0px;
+    padding-block: 8px;
+    margin-bottom: 20px;
     background: rgb(17, 153, 250);
-    border-radius: 0.6rem;
+    border-radius: 1rem;
     overflow-y: auto;
 }
-.search-modal{
-        background-color: rgb(31 35 51 / var(--tw-bg-opacity, 1));
-        border-radius: 2.5rem;
+
+.search-modal {
+    background-color: rgb(31 35 51 / var(--tw-bg-opacity, 1));
+    border-radius: 2.5rem;
 }
-.borrow-pt{
+
+.borrow-pt {
     padding-block: 5rem;
     overflow-y: scroll;
 }
-.verification{
-background-color: #010117;
-}
-.verification input, .verification option, .verification select, .verification textarea, .verification div{
+
+.verification {
     background-color: #010117;
 }
-.scroller{
+
+.verification input,
+.verification option,
+.verification select,
+.verification textarea,
+.verification div {
+    background-color: #010117;
+}
+
+.scroller {
     height: 90px;
 }
-.category-button{
+
+.category-button {
     font-style: normal;
     font-weight: 500;
     text-align: center;
+    font-size: 16px;
     line-height: 0.52rem;
     color: rgb(0, 0, 0);
+    font-family: "Mabry Pro";
+    padding-block: 16px;
 }
-.category-button.active{
-        background: rgb(0, 0, 0);
+.text-gray-400{
+    font-family: "Mabry Pro";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    /* height: 0.38rem; */
+    display: flex;
+
+}
+.category-button.active {
+    background: rgb(0, 0, 0);
     border-radius: 0.46rem;
     color: rgb(17, 153, 250);
-    margin: 10px;
+    padding-block: 6px;
+}
+.flex.text-gray-400.text-sm.px-4.py-2{
+    font-family: "Mabry Pro";
+    color: white;
+}
+.currency-sign{
+    color: rgb(58, 61, 255) !important;
+    font-size: .6rem;
+}
+.smart-trading-modal .text-blue-100, .smart-trading-modal .font-semibold.text-white{
+    font-family: "Mabry Pro";
+   color: rgb(0, 0, 0);
+}
+.smart-trading-modal .contents{
+    font-family: poppins;
+    font-weight: 200;
+    color: black;
+}
+.lucide.lucide-search{
+    font-size: 32px;
+    height: 24px !important;
+}
+.text-gray-400{
+    height: unset !important;
+}
+.card-font{
+    font-family: "Mabry Pro";
+}
+.icon-row{
+    width: 2rem;
+}
+.icon-row img{
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
 }

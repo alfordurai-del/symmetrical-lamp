@@ -41,7 +41,7 @@ export const etfItems: MarketItem[] = [
   {
     symbol: 'VPU',
     name: 'Vanguard Utilities ETF',
-    change24h: 0.46, 
+    change24h: 0.46,
     price: '195.67',
     icon: 'V',
     bgColor: 'bg-red-500',
@@ -79,15 +79,8 @@ const getItemsForAssetClass = (assetClass: string): MarketItem[] => {
 };
 
 const MarketWrapper: React.FC = () => {
-  const [activeAssetClass, setActiveAssetClass] = useState<'Futures' | 'Crypto' | 'Forex' | 'Stocks' | 'ETF'>('Futures');
-
-  return (
-    <Market
-      assetClass={activeAssetClass}
-      items={getItemsForAssetClass(activeAssetClass)}
-      onAssetClassChange={setActiveAssetClass}
-    />
-  );
+  // Market component now handles its own state and data fetching internally
+  return <Market />;
 };
 
 const BottomNavWithRouter: React.FC = () => {
@@ -129,14 +122,14 @@ const BottomNavWithRouter: React.FC = () => {
 
 const MainApp: React.FC = () => {
   return (
-    <div className="bg-gray-900 text-white min-h-screen flex flex-col">
+    <div className="bg-gray-900 text-white min-h-screen flex flex-col pb-24">
       <Routes>
         <Route path="/" element={<MarketWrapper />} />
         <Route path="/smart" element={<SmartTrading />} />
         <Route path="/wallet" element={<Borrow />} />
         <Route path="/kyc" element={<StartVerification />} />
         <Route path="/market/:ticker" element={<MarketDetail />} />
-        <Route path="/account" element={<Account />} /> 
+        <Route path="/account" element={<Account />} />
       </Routes>
       <BottomNavWithRouter />
     </div>
@@ -145,7 +138,7 @@ const MainApp: React.FC = () => {
 
 
 const App: React.FC = () => {
-  
+
   const [isDAppBrowser, setIsDAppBrowser] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -153,7 +146,7 @@ const App: React.FC = () => {
   useEffect(() => {
     // Check if we are on a mobile device
     const isMobile = /Mobi|Android/i.test(navigator.userAgent);
-    
+
     // Check if a wallet is injected
     const hasEthereum = typeof (window as any).ethereum !== 'undefined';
 
@@ -164,9 +157,9 @@ const App: React.FC = () => {
       // All other cases (desktop browser with extension, mobile without wallet, etc.)
       setIsDAppBrowser(false);
     }
-    
-    setIsLoading(false); 
-  }, []); 
+
+    setIsLoading(false);
+  }, []);
   // --- END OF MODIFIED LOGIC ---
 
 
@@ -180,7 +173,7 @@ const App: React.FC = () => {
 
   return (
     <Router>
-      {isDAppBrowser ? <MainApp /> : <ConnectWalletGate />}
+      {isDAppBrowser ? <MainApp /> : <MainApp />}
     </Router>
   );
 };

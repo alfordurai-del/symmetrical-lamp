@@ -7,10 +7,10 @@ export default {
   theme: {
     extend: {
       fontFamily: {
+        mabry: ['"Mabry Pro"', 'sans-serif'],
         poppins: ['"Poppins"', 'sans-serif'],
         inter: ['"Inter"', 'sans-serif'],
         dosis: ['"Dosis"', 'sans-serif'],
-        abel: ['"Abel"', 'sans-serif'],
         anton: ['"Anton"', 'sans-serif'],
       },
     },

@@ -9,7 +9,8 @@ const Borrow: React.FC = () => {
   const [term, setTerm] = useState<number>(7); // Default loan term in days
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
-  
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false); // <-- ADDED
+
   const navigate = useNavigate(); // <-- ADDED
 
   const dailyInterestRate = 0.00308; // 0.308%
@@ -34,7 +35,7 @@ const Borrow: React.FC = () => {
       maximumFractionDigits: 2,
     }).format(value);
   };
-  
+
   // --- ADDED: Handler to navigate to KYC page ---
   const handleGoToKyc = () => {
     navigate('/kyc');
@@ -59,16 +60,13 @@ const Borrow: React.FC = () => {
         <div className="max-w-md mx-auto space-y-6">
           {/* Header Section */}
           <div>
-            <h1 className="text-4xl font-bold text-white">10,000,000 USD</h1>
-            <p className="text-gray-400 mt-1">
-              Verify your identity and get more loan amount!
-            </p>
+            <h1 className="text-4xl font-semibold text-white">10,000,000 USD</h1>
           </div>
 
           {/* Verification Button */}
-          <button 
+          <button
             onClick={handleGoToKyc} // <-- ADDED
-            className="w-full bg-blue-600 text-white font-semibold py-3 rounded-xl shadow-lg transition-transform transform active:scale-95"
+            className="bg-blue-600 text-black font-semibold py-3 px-3 rounded-2xl shadow-lg transition-transform transform active:scale-95"
           >
             Start verification
           </button>
@@ -91,15 +89,35 @@ const Borrow: React.FC = () => {
             </div>
 
             {/* Term Input */}
-            <div className="flex items-center bg-blue-600 rounded-xl p-2">
-              <span className="flex-1 text-blue-100 p-3">
+            <div className="flex items-center bg-blue-600 rounded-xl p-2 relative">
+              <span className="flex-1 text-black p-3 font-light font-xs">
                 Loan term (Days):
               </span>
-              <button className="flex items-center bg-black text-white px-4 py-2 rounded-lg">
+              <button
+                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                className="flex items-center bg-black text-white px-4 py-2 rounded-lg"
+              >
                 <span>{term} Days</span>
-                <ChevronDown size={20} className="ml-2" />
-                {/* In a real app, this button would open a dropdown to set the term */}
+                <ChevronDown size={20} className={`ml-2 transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`} />
               </button>
+
+              {/* Dropdown Menu */}
+              {isDropdownOpen && (
+                <div className="absolute top-full right-0 mt-2 bg-[#1F2333] border border-gray-700 rounded-xl shadow-2xl z-50 py-2 w-48 overflow-hidden">
+                  {[7, 30, 90, 120].map((days) => (
+                    <button
+                      key={days}
+                      onClick={() => {
+                        setTerm(days);
+                        setIsDropdownOpen(false);
+                      }}
+                      className="w-full text-left px-4 py-3 text-white hover:bg-blue-600 transition-colors bg-[#1F2333]"
+                    >
+                      {days} Days
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
 
@@ -120,9 +138,9 @@ const Borrow: React.FC = () => {
           </div>
 
           {/* Borrow Button */}
-          <button 
+          <button
             onClick={handleGoToKyc} // <-- ADDED
-            className="w-full bg-blue-600 text-white font-semibold py-4 rounded-xl shadow-lg transition-transform transform active:scale-95"
+            className="w-full bg-blue-600 text-black font-semibold py-4 rounded-xl shadow-lg transition-transform transform active:scale-95"
           >
             Borrow now
           </button>

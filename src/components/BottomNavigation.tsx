@@ -59,14 +59,13 @@ const BottomNavigation: React.FC<BottomNavigationProps> = ({ activeTab: propActi
         <button
           key={tab.id}
           onClick={() => handleTabChange(tab.id as any)}
-          className={`flex items-center justify-center transition-transform duration-200 ${
-            activeTab === tab.id ? 'scale-110' : 'opacity-70'
-          } hover:opacity-100`}
+          className={`flex items-center justify-center transition-transform duration-200 ${activeTab === tab.id ? 'scale-110' : 'opacity-70'
+            } hover:opacity-100`}
         >
           <img
             src={tab.icon}
             alt={`${tab.id} icon`}
-            className={`w-7 h-7 ${activeTab === tab.id ? '' : 'brightness-75'}`}
+            className={`w-7 h-7 ${activeTab === tab.id ? 'brightness-0' : 'opacity-70'}`}
           />
         </button>
       ))}

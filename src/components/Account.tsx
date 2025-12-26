@@ -283,7 +283,7 @@ const SettingsSection: React.FC = () => {
 
 const Account: React.FC = () => {
   return (
-    <div className="min-h-screen w-full bg-[#0D0F1C] text-white font-sans">
+    <div className="min-h-screen w-full bg-[#010117] text-white font-sans">
       <div className="max-w-md mx-auto relative">
         {/* Header */}
         <header className="flex justify-between items-center p-4">

@@ -32,7 +32,7 @@ const ConnectWalletGate: React.FC = () => {
   }
 
   return (
-    <div className="bg-[#0D0F1C] text-white min-h-screen flex flex-col items-center justify-center p-8 text-center">
+    <div className="bg-[#010117] text-white min-h-screen flex flex-col items-center justify-center p-8 text-center">
       <div className="mb-8 text-blue-500 opacity-30">
         <BarChart3 size={150} />
       </div>

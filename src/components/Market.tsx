@@ -148,7 +148,7 @@ const AssetRow: React.FC<AssetRowProps> = ({ asset, onSelect }) => {
   return (
     <div
       onClick={() => onSelect(ticker)}
-      className="flex items-center p-4 cursor-pointer hover:bg-[#1a1d2d] transition-colors rounded-xl border border-gray-800 mb-2"
+      className="flex items-center p-4 m-2 cursor-pointer hover:bg-[#1a1d2d] transition-colors rounded-xl border border-gray-800 mb-2"
     >
       <div className="flex-1 text-left flex items-center space-x-3">
         {icon && <div className='icon-row'>{icon}</div>}
@@ -300,7 +300,7 @@ const Market: React.FC = () => {
   );
 
   return (
-    <div className="min-h-screen w-full bg-[#0D0F1C] text-white font-sans">
+    <div className="min-h-screen w-full bg-[#010117] text-white font-sans">
       <style>
         {`
           .no-scrollbar::-webkit-scrollbar { display: none; }
@@ -388,7 +388,7 @@ const Market: React.FC = () => {
 
                 {/* Asset List */}
                 <section>
-                  <header className="flex justify-between text-xs text-gray-400 font-medium px-4 mb-2 tracking-wider">
+                  <header className="flex justify-between text-xs text-white font-medium px-4 mb-2 tracking-wider">
                     <div className="flex-1 text-left">Name</div>
                     <div className="flex-1 text-center">24h%</div>
                     <div className="flex-1 text-center">Chart</div>

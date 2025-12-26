@@ -310,7 +310,7 @@ const MarketDetail: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen w-full bg-[#0D0F1C] text-white font-sans flex flex-col">
+    <div className="min-h-screen w-full bg-[#010117] text-white font-sans flex flex-col">
 
       {/* --- Header --- */}
       <header className="flex items-center justify-between p-4">

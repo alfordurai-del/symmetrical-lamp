@@ -287,7 +287,7 @@ const CreatePlanModal: React.FC<{
 }> = ({ product, onClose }) => {
   return (
     // <-- MODIFIED: Added styles for modal overlay
-    <div className="absolute inset-0 z-50 bg-[#0D0F1C] p-4">
+    <div className="absolute inset-0 z-50 bg-[#010117] p-4">
       {/* Modal Header */}
       <header className="flex items-center space-x-4">
         <button onClick={onClose} className="text-white">
@@ -467,7 +467,7 @@ const App: React.FC = () => {
   );
 
   return (
-    <div className="min-h-screen w-full bg-[#0D0F1C] text-white font-sans">
+    <div className="min-h-screen w-full bg-[#010117] text-white font-sans">
       {/* Style tag to hide scrollbar */}
       <style>
         {`

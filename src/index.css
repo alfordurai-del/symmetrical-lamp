@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Abel&family=Anton&family=Dosis:wght@200..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -19,9 +19,12 @@
     background-color: #1199fa;
 }
 
+/* Primary font - Inter is similar to SF Pro */
 html,
 body {
-    font-family: 'Mabry Pro', 'Poppins', 'Inter', 'Dosis', sans-serif !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .header-market {
@@ -83,56 +86,132 @@ body {
     font-size: 16px;
     line-height: 0.52rem;
     color: rgb(0, 0, 0);
-    font-family: "Mabry Pro";
+    font-family: 'Inter', sans-serif;
     padding-block: 16px;
 }
-.text-gray-400{
-    font-family: "Mabry Pro";
+
+.text-gray-400 {
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 400;
-    font-size: 16px;
-    /* height: 0.38rem; */
+    font-size: 14px;
     display: flex;
-
 }
+
 .category-button.active {
     background: rgb(0, 0, 0);
     border-radius: 0.46rem;
     color: rgb(17, 153, 250);
     padding-block: 6px;
 }
-.flex.text-gray-400.text-sm.px-4.py-2{
-    font-family: "Mabry Pro";
+
+.flex.text-gray-400.text-sm.px-4.py-2 {
+    font-family: 'Inter', sans-serif;
     color: white;
 }
-.currency-sign{
+
+.currency-sign {
     color: rgb(58, 61, 255) !important;
     font-size: .6rem;
 }
-.smart-trading-modal .text-blue-100, .smart-trading-modal .font-semibold.text-white{
-    font-family: "Mabry Pro";
-   color: rgb(0, 0, 0);
+
+.smart-trading-modal .text-blue-100,
+.smart-trading-modal .font-semibold.text-white {
+    font-family: 'Inter', sans-serif;
+    color: rgb(0, 0, 0);
 }
-.smart-trading-modal .contents{
-    font-family: poppins;
+
+.smart-trading-modal .contents {
+    font-family: 'Inter', sans-serif;
     font-weight: 200;
     color: black;
 }
-.lucide.lucide-search{
+
+.lucide.lucide-search {
     font-size: 32px;
     height: 24px !important;
 }
-.text-gray-400{
+
+.text-gray-400 {
     height: unset !important;
 }
-.card-font{
-    font-family: "Mabry Pro";
+
+.card-font {
+    font-family: 'Inter', sans-serif;
 }
-.icon-row{
+
+.icon-row {
     width: 2rem;
 }
-.icon-row img{
+
+.icon-row img {
     width: 1.5rem;
     height: 1.5rem;
     border-radius: 50%;
+}
+
+.text-table {
+    font-size: .78rem !important;
+}
+
+/* ========================================
+   ASSET ROW STYLES - Market List Design
+   ======================================== */
+
+.asset-row {
+    background: linear-gradient(135deg, rgba(31, 35, 51, 0.6) 0%, rgba(13, 15, 28, 0.8) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    min-height: 64px;
+}
+
+.asset-row:hover {
+    background: linear-gradient(135deg, rgba(31, 35, 51, 0.8) 0%, rgba(13, 15, 28, 0.9) 100%);
+    border-color: rgba(17, 153, 250, 0.3);
+}
+
+.asset-ticker {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+
+.asset-name {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    opacity: 0.7;
+}
+
+.asset-price {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+}
+
+.asset-change {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+}
+
+.asset-action-btn {
+    border-radius: 0 16px 16px 0;
+    flex-shrink: 0;
+}
+
+.asset-list-header {
+    font-family: 'Inter', sans-serif;
+    padding-left: 0;
+    padding-right: 0;
+}
+.smart-asset-row div, .smart-asset-row span{
+    font-size: .65rem !important;
+}
+
+.asset-list-header>div {
+    font-weight: 500;
+    text-transform: capitalize;
+    letter-spacing: 0.02em;
+}
+.smart-asset-list-header>div {
+    font-size: .80rem !important;
+    color: white !important;
 }

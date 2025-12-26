@@ -45,7 +45,7 @@ const Borrow: React.FC = () => {
   const dummyAssets = [];
 
   return (
-    <div className="min-h-screen w-full bg-[#0D0F1C] text-white font-sans flex flex-col">
+    <div className="min-h-screen w-full bg-[#010117] text-white font-sans flex flex-col">
       {/* Header */}
       <Header
         title="Borrow"

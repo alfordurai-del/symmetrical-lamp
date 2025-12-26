@@ -100,55 +100,57 @@ const Sparkline: React.FC<SparklineProps> = ({
 
 // --- ASSET ROW COMPONENT ---
 const AssetRow: React.FC<AssetRowProps> = ({ asset, onOpenPlan }) => {
-  const { ticker, spotPrice, change, chartData, name, icon } = asset;
+  const { ticker, spotPrice, change, chartData, icon } = asset;
   const changeColor = getChangeColor(change);
   const chartColor = getChartColor(change);
 
+  const handlePlanClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (onOpenPlan) {
+      onOpenPlan(ticker);
+    }
+  };
+
   return (
-    <div className="flex items-center p-4">
-      {/* Name (Icon + Ticker) */}
-      <div className="flex-[2] flex items-center space-x-3">
-        {icon && icon}
-        <div>
-          <span className="font-medium text-white text-base leading-none">
-            {ticker}
-          </span>
-          {name && name !== ticker && (
-            <span className="text-gray-400 text-sm leading-none block">
-              {name}
-            </span>
+    <div className="smart-asset-row flex items-stretch cursor-pointer hover:bg-[#1a1d2d]/50 transition-colors rounded-2xl border border-gray-700/50 mb-3 overflow-hidden">
+      {/* Main content area */}
+      <div className="flex items-center flex-1 py-4 pl-4 pr-2">
+        {/* Name Column - Ticker + Full Name */}
+        <div className="flex-1 text-left flex items-center space-x-3 w-24">
+          {icon && (
+            <div className="flex-shrink-0">
+              {icon}
+            </div>
           )}
+          <div className="smart-asset-ticker text-white font-semibold text-base">{ticker}</div>
+        </div>
+
+        {/* Spot Price Column */}
+        <div className="text-center w-24">
+          <span className="smart-asset-price text-white text-sm font-medium">{spotPrice}</span>
+        </div>
+
+        {/* 24h% Column */}
+        <div className="text-center">
+          <span className={`smart-asset-change text-sm font-medium ${changeColor}`}>
+            {change > 0 ? '' : ''}{change.toFixed(2)}%
+          </span>
+        </div>
+
+        {/* Chart Column */}
+        <div className="flex justify-center">
+          <Sparkline data={chartData} color={chartColor} width={70} height={24} />
         </div>
       </div>
 
-      {/* Spot price */}
-      <div className="flex-[2] text-left font-medium text-white">
-        {spotPrice}
-      </div>
-
-      {/* 24h% */}
-      <div className={`flex-1 text-left font-medium ${changeColor}`}>
-        {change > 0 ? '+' : ''}
-        {change.toFixed(2)}%
-      </div>
-
-      {/* Chart */}
-      <div className="flex-1 flex justify-center">
-        <Sparkline data={chartData} color={chartColor} />
-      </div>
-
-      {/* Button */}
-      <div className="flex-shrink-0 w-8 ml-2">
-        {onOpenPlan && (
-          <button
-            onClick={() => onOpenPlan(asset.ticker)}
-            className="w-8 h-8 flex items-center justify-center bg-blue-600 rounded-full text-white hover:bg-blue-500 transition-colors"
-            aria-label={`Create plan for ${ticker}`}
-          >
-            <Plus size={20} />
-          </button>
-        )}
-      </div>
+      {/* Blue Action Button - Full height with matching border radius */}
+      <button
+        onClick={handlePlanClick}
+        className="smart-asset-action-btn w-12 flex items-center justify-center bg-[#1199fa] hover:bg-[#0d88e0] transition-colors"
+        aria-label={`Create plan for ${ticker}`}
+      >
+        <Plus size={20} className="text-white" strokeWidth={2.5} />
+      </button>
     </div>
   );
 };
@@ -163,7 +165,7 @@ const CreatePlanModal: React.FC<{
   const timeframes = ['1 Days', '5 Days', '30 Days', '90 Days', '120 Days'];
 
   return (
-    <div className="fixed inset-0 z-[100] bg-[#0D0F1C] flex flex-col smart-trading-modal">
+    <div className="fixed inset-0 z-[100] bg-[#010117] flex flex-col smart-trading-modal">
       <div className="flex-1 overflow-y-auto p-4 pb-32">
         {/* Modal Header */}
         <header className="flex items-center space-x-4 mb-8">
@@ -370,7 +372,7 @@ const SmartTrading: React.FC = () => {
   );
 
   return (
-    <div className="min-h-screen w-full bg-[#0D0F1C] text-white font-sans">
+    <div className="min-h-screen w-full bg-[#010117] text-white font-sans">
       <style>
         {`
           .no-scrollbar::-webkit-scrollbar {
@@ -451,13 +453,13 @@ const SmartTrading: React.FC = () => {
             ) : (
               <>
                 {/* Asset List */}
-                <section>
-                  <header className="flex text-gray-400 text-sm px-4 py-2">
-                    <div className="flex-[2]">Name</div>
-                    <div className="flex-[2] text-left">Spot price</div>
-                    <div className="flex-1 text-left">24h%</div>
-                    <div className="flex-1 text-center">Chart</div>
-                    <div className="flex-shrink-0 w-8 ml-2"></div>
+                <section className="px-4">
+                  <header className="smart-asset-list-header flex items-center text-xs text-gray-400 font-medium mb-3 tracking-wider">
+                    <div className="flex-1 text-right">Name</div>
+                    <div className="w-24 text-right">Spot price</div>
+                    <div className="w-16 text-right">24h%</div>
+                    <div className="w-20 text-center">Chart</div>
+                    <div className="w-12"></div> {/* Space for action button */}
                   </header>
 
                   <div className="divide-y divide-gray-800">
